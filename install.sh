@@ -1,7 +1,6 @@
 #/bin/bash
 #
 #MINECRAFT_PATH=`cat ./.settings`
-ARCH=$1
 
 echo "This script requires sudo privleges"
 sudo -v
@@ -17,9 +16,6 @@ install_here() {
 }
 
 depend_aptyum() {
-    echo "Installing screen..."
-    sudo ${ARCH} install screen -y
-    echo "---------"
     echo "Please input path to minecraft server"
     echo "Example: /path/to/server/"
     read -r -p 'Location: ' SERVER_PATH
@@ -27,24 +23,30 @@ depend_aptyum() {
     sudo echo ${SERVER_PATH} > .settings
 }
 
-case $1 in
 
-apt)
-    echo ">>Using $1."
-    depend_aptyum
-    install_here
-    echo "Done!"
-    ;;
+depend_aptyum
+install_here
+echo "Done!"
 
-yum)
-    echo ">>Using $1."
-    depend_aptyum
-    install_here
-    echo "Done!"
-    ;;
-*)
-	echo "usage... $0 (apt|yum)"
-	;;
-
-esac
+# Obsolete
+#case $1 in
+#
+#apt)
+#    echo ">>Using $1."
+#    depend_aptyum
+#    install_here
+#    echo "Done!"
+#    ;;
+#
+#yum)
+#    echo ">>Using $1."
+#    depend_aptyum
+#    install_here
+#    echo "Done!"
+#    ;;
+#*)
+#	echo "usage... $0 ()"
+#	;;
+#
+#esac
 

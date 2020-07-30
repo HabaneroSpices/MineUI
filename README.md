@@ -1,14 +1,12 @@
 # MineUI: Minecraft Server Panel
 
-# Install (auto)
+# Install
 **Using install.sh**
 ```
-$ bash install.sh apt
-or
-$ bash install.sh yum
+$ bash install.sh
 ```
 
-# Install (manual)
+# Install Manually
 **Setting the server path.**
 ```
 $ touch .settings
